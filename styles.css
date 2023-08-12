@@ -13,13 +13,15 @@
 
   --checked-blue: #052ae2CC;
 
-  /* ranking border colors */
-  --a-rank: #fb4a8c;
-  --b-rank: #fc840c;
-  --c-rank: #ffc407;
-  --d-rank: #19b468;
-  --f-rank: #a6a6a4;
-  --no-rank: #707070;
+  /* company border colors */
+  --jyp: #4599e1;
+  --fnc: #cd4632;
+  --sm: #f6e3e9;
+  --starship: #db7044;
+  --yg: #000000;
+  --hybe: #f7ff54;
+  --independent: #ffffff;
+  --cube: #306199;
 }
 
 p {
@@ -114,7 +116,7 @@ body {
   border: none;
   border-radius: 3px;
   padding: 4px 6px 4px 6px;
-  background-color: var(--a-rank);
+  background-color: var(--jyp);
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -225,23 +227,29 @@ body {
   background-origin: content-box;
 }
 /* Different entry borders */
-.a-rank-border {
-  border: 5px solid var(--a-rank);
+.jyp-border {
+  border: 5px solid var(--jyp);
 }
-.b-rank-border {
-  border: 5px solid var(--b-rank);
+.fnc-border {
+  border: 5px solid var(--fnc);
 }
-.c-rank-border {
-  border: 5px solid var(--c-rank);
+.sm-border {
+  border: 5px solid var(--sm);
 }
-.d-rank-border {
-  border: 5px solid var(--d-rank);
+.starship-border {
+  border: 5px solid var(--starship);
 }
-.f-rank-border {
-  border: 5px solid var(--f-rank);
+.yg-border {
+  border: 5px solid var(--yg);
 }
-.no-rank-border {
-  border: none;
+.hybe-border {
+  border: 5px solid var(--hybe);
+}
+.independent-border {
+  border: 5px solid var(--independent);
+}
+.cube-border {
+  border: 5px solid var(--cube);
 }
 .eliminated .table__entry-icon-border {
   border: 5px solid var(--no-rank);
@@ -328,7 +336,7 @@ body {
   bottom: -5px;
   margin: auto;
   border-radius: 50%;
-  background-color: var(--a-rank);
+  background-color: var(--jyp);
   box-sizing: border-box;
   padding: 2px;
   /* badge text options */
@@ -344,23 +352,29 @@ body {
 }
 
 /* Styles for different badge colors */
-.bg-no {
-  background-color: var(--no-rank);
+.bg-jyp {
+  background-color: var(--jyp);
 }
-.bg-a {
-  background-color: var(--a-rank);
+.bg-fnc {
+  background-color: var(--fnc);
 }
-.bg-b {
-  background-color: var(--b-rank);
+.bg-sm {
+  background-color: var(--sm);
 }
-.bg-c {
-  background-color: var(--c-rank);
+.bg-starship {
+  background-color: var(--starship);
 }
-.bg-d {
-  background-color: var(--d-rank);
+.bg-yg {
+  background-color: var(--yg);
 }
-.bg-f {
-  background-color: var(--f-rank);
+.bg-hybe {
+  background-color: var(--hybe);
+}
+.bg-independent {
+  background-color: var(--independent);
+}
+.bg-cube {
+  background-color: var(--cube);
 }
 .eliminated .ranking__entry-icon-badge {
   background-color: var(--no-rank);
