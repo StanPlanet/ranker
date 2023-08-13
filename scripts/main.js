@@ -1,4 +1,4 @@
-x// Takes in name of csv and populates necessary data in table
+// Takes in name of csv and populates necessary data in table
 function readFromCSV(path) {
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", path, false);
