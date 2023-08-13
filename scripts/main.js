@@ -1,4 +1,4 @@
-// Takes in name of csv and populates necessary data in table
+x// Takes in name of csv and populates necessary data in table
 function readFromCSV(path) {
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", path, false);
@@ -60,7 +60,7 @@ function getRanking() {
 /*
 trainee: {
   id: ... 
-  company: jyp entertainment/fnc entertainment/sm entertainment/starship entertainment/yg entertainment/hybe labels/independent trainee/cube entertainment
+  company: jyp/fnc/sm/starship/yg/hybe/independent/cube
   image: ...
   selected: false/true // whether user selected them
   eliminated: false/true
