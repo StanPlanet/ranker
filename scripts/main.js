@@ -72,9 +72,9 @@ function convertCSVArrayToTraineeData(csvArrays) {
     trainee = {};
     trainee.name = traineeArray[0];
     trainee.company = traineeArray[1];
-    trainee.eliminated = traineeArray[3] === 'e'; // sets trainee to be eliminated if 'e' appears in 3rd col
-    trainee.top7 = traineeArray[3] === 't'; // sets trainee to top 7 if 't' appears in 3rd column
-    trainee.id = parseInt(traineeArray[7]) - 1; // trainee id is the original ordering of the trainees in the first csv
+    trainee.eliminated = traineeArray[2] === 'e'; // sets trainee to be eliminated if 'e' appears in 3rd col
+    trainee.top7 = traineeArray[2] === 't'; // sets trainee to top 7 if 't' appears in 3rd column
+    trainee.id = parseInt(traineeArray[3]) - 1; // trainee id is the original ordering of the trainees in the first csv
     trainee.image =
       trainee.name.replace(" ", "").replace("-", "") + ".jpeg";
     return trainee;
