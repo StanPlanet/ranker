@@ -177,7 +177,7 @@ function populateTableEntry(trainee) {
     </div>
     <div class="table__entry-text">
       <span class="name"><strong>${trainee.name}</strong></span>
-      <span class="companyandyear">${trainee.company.toUpperCase()}</span>
+      <span class="company">${trainee.company.toUpperCase()}</span>
     </div>
   </div>`;
   return tableEntry;
