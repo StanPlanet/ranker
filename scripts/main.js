@@ -300,6 +300,7 @@ function filterTrainees(event) {
   // filters trainees based on name, alternate names, and company
   filteredTrainees = trainees.filter(function (trainee) {
     let initialMatch = includesIgnCase(trainee.name, filterText) || includesIgnCase(trainee.company, filterText);
+    return initialMatch;
   });
   filteredTrainees = sortedTrainees(filteredTrainees);
   rerenderTable();
