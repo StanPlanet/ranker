@@ -60,7 +60,7 @@ function getRanking() {
 /*
 trainee: {
   id: ... 
-  company: jyp/fnc/sm/starship/yg/hybe/independent/cube
+  company: jyp entertainment/fnc entertainment/sm entertainment/starship entertainment/yg entertainment/hybe labels/independent trainee/cube entertainment
   image: ...
   selected: false/true // whether user selected them
   eliminated: false/true
