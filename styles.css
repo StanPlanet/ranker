@@ -17,6 +17,7 @@
   --ashen: #c35043;
   --pacifica: #3148ba;
   --subzero: #b2e7f6;
+  --digitized: #b2e7f6;
   --no-rank: #989898;
 }
 
@@ -112,7 +113,7 @@ body {
   border: none;
   border-radius: 3px;
   padding: 4px 6px 4px 6px;
-  background-color: var(--subzero);
+  background-color: var(--digitized);
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -317,7 +318,7 @@ body {
   bottom: -5px;
   margin: auto;
   border-radius: 50%;
-  background-color: var(--subzero);
+  background-color: var(--digitized);
   box-sizing: border-box;
   padding: 2px;
   /* badge text options */
