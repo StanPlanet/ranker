@@ -334,7 +334,7 @@ function removeRankedTrainee(trainee) {
   return false;
 }
 
-const currentURL = "https://projectidol.github.io/StanPlanet/";
+const currentURL = "https://StanPlanet.github.io/ranker/";
 // Serializes the ranking into a string and appends that to the current URL
 function generateShareLink() {
   let shareCode = ranking.map(function (trainee) {
