@@ -223,8 +223,8 @@ function populateRanking() {
   }
 }
 
-const abbreviatedCompanies = {
-  "INDIVIDUAL TRAINEE": "INDIVIDUAL",
+const abbreviatedRegions = {
+  "SUBZERO": "SUB:ZERO",
 }
 
 function populateRankingEntry(trainee, currRank) {
