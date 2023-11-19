@@ -229,7 +229,7 @@ const abbreviatedCompanies = {
 
 function populateRankingEntry(trainee, currRank) {
   let modifiedRegion = trainee.region.toUpperCase();
-  modifiedRegion = modifiedRegion.replace("ENTERTAINMENT", "ENT.");
+  modifiedRegion = modifiedRegion.replace("SUBZERO", "SUB:ZERO");
   if (abbreviatedRegions[modifiedRegion]) {
     modifiedRegion = abbreviatedRegions[modifiedRegion];
   }
