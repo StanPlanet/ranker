@@ -60,7 +60,7 @@ function getRanking() {
 /*
 trainee: {
   id: ... 
-  company: jyp/fnc/sm/starship/yg/hybe/independent/cube
+  region: ashen/pacifica/sub:zero
   image: ...
   selected: false/true // whether user selected them
   eliminated: false/true
@@ -71,10 +71,11 @@ function convertCSVArrayToTraineeData(csvArrays) {
   trainees = csvArrays.map(function(traineeArray, index) {
     trainee = {};
     trainee.name = traineeArray[0];
-    trainee.company = traineeArray[1];
-    trainee.eliminated = traineeArray[2] === 'e'; // sets trainee to be eliminated if 'e' appears in 3rd col
-    trainee.top7 = traineeArray[2] === 't'; // sets trainee to top 7 if 't' appears in 3rd column
-    trainee.id = parseInt(traineeArray[3]) - 1; // trainee id is the original ordering of the trainees in the first csv
+    trainee.region = traineeArray[1];
+    trainee.company = traineeArray[2];
+    trainee.eliminated = traineeArray[3] === 'e'; // sets trainee to be eliminated if 'e' appears in 3rd col
+    trainee.top7 = traineeArray[3] === 't'; // sets trainee to top 7 if 't' appears in 3rd column
+    trainee.id = parseInt(traineeArray[4]) - 1; // trainee id is the original ordering of the trainees in the first csv
     trainee.image =
       trainee.name.replace(" ", "").replace("-", "") + ".jpeg";
     return trainee;
@@ -88,7 +89,7 @@ function newTrainee() {
   return {
     id: -1, // -1 denotes a blank trainee spot
     name: '&#8203;', // this is a blank character
-    company: '&#8203;', // this is a blank character
+    region: '&#8203;', // this is a blank character
     image: 'emptyrank.png',
   };
 }
@@ -167,7 +168,7 @@ function populateTableEntry(trainee) {
   <div class="table__entry ${eliminated}">
     <div class="table__entry-icon">
       <img class="table__entry-img" src="assets/trainees/${trainee.image}" />
-      <div class="table__entry-icon-border ${trainee.company.toLowerCase()}-border"></div>
+      <div class="table__entry-icon-border ${trainee.region.toLowerCase()}-border"></div>
       ${
         top7 ? '<div class="table__entry-icon-crown"></div>' : ''
       }
@@ -177,7 +178,7 @@ function populateTableEntry(trainee) {
     </div>
     <div class="table__entry-text">
       <span class="name"><strong>${trainee.name}</strong></span>
-      <span class="companyandyear">${trainee.company.toUpperCase()}</span>
+      <span class="regionandyear">${trainee.region.toUpperCase()}</span>
     </div>
   </div>`;
   return tableEntry;
@@ -226,10 +227,10 @@ const abbreviatedCompanies = {
 }
 
 function populateRankingEntry(trainee, currRank) {
-  let modifiedCompany = trainee.company.toUpperCase();
-  modifiedCompany = modifiedCompany.replace("ENTERTAINMENT", "ENT.");
-  if (abbreviatedCompanies[modifiedCompany]) {
-    modifiedCompany = abbreviatedCompanies[modifiedCompany];
+  let modifiedRegion = trainee.region.toUpperCase();
+  modifiedRegion = modifiedRegion.replace("ENTERTAINMENT", "ENT.");
+  if (abbreviatedRegions[modifiedRegion]) {
+    modifiedRegion = abbreviatedRegions[modifiedRegion];
   }
   let eliminated = (showEliminated && trainee.eliminated) && "eliminated";
   let top7 = (showTop7 && trainee.top7) && "top7";
@@ -238,16 +239,16 @@ function populateRankingEntry(trainee, currRank) {
     <div class="ranking__entry-view">
       <div class="ranking__entry-icon">
         <img class="ranking__entry-img" src="assets/trainees/${trainee.image}" />
-        <div class="ranking__entry-icon-border ${trainee.company.toLowerCase()}-border" data-rankid="${currRank-1}"></div>
+        <div class="ranking__entry-icon-border ${trainee.region.toLowerCase()}-border" data-rankid="${currRank-1}"></div>
       </div>
-      <div class="ranking__entry-icon-badge bg-${trainee.company.toLowerCase()}">${currRank}</div>
+      <div class="ranking__entry-icon-badge bg-${trainee.region.toLowerCase()}">${currRank}</div>
       ${
         top7 ? '<div class="ranking__entry-icon-crown"></div>' : ''
       }
     </div>
     <div class="ranking__row-text">
       <div class="name"><strong>${trainee.name}</strong></div>
-      <div class="company">${modifiedCompany}</div>
+      <div class="region">${modifiedRegion}</div>
     </div>
   </div>`;
   return rankingEntry;
@@ -297,9 +298,9 @@ function swapTrainees(index1, index2) {
 // uses the current filter text to create a subset of trainees with matching info
 function filterTrainees(event) {
   let filterText = event.target.value.toLowerCase();
-  // filters trainees based on name, alternate names, and company
+  // filters trainees based on name, alternate names, and region
   filteredTrainees = trainees.filter(function (trainee) {
-    let initialMatch = includesIgnCase(trainee.name, filterText) || includesIgnCase(trainee.company, filterText);
+    let initialMatch = includesIgnCase(trainee.name, filterText) || includesIgnCase(trainee.region, filterText);
     return initialMatch;
   });
   filteredTrainees = sortedTrainees(filteredTrainees);
