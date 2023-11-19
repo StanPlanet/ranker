@@ -112,7 +112,7 @@ body {
   border: none;
   border-radius: 3px;
   padding: 4px 6px 4px 6px;
-  background-color: var(--jyp);
+  background-color: var(--subzero);
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -317,7 +317,7 @@ body {
   bottom: -5px;
   margin: auto;
   border-radius: 50%;
-  background-color: var(--jyp);
+  background-color: var(--subzero);
   box-sizing: border-box;
   padding: 2px;
   /* badge text options */
