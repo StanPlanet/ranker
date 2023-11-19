@@ -64,7 +64,7 @@ trainee: {
   image: ...
   selected: false/true // whether user selected them
   eliminated: false/true
-  top7: false/true
+  top9: false/true
 }
 */
 function convertCSVArrayToTraineeData(csvArrays) {
@@ -74,7 +74,7 @@ function convertCSVArrayToTraineeData(csvArrays) {
     trainee.region = traineeArray[1];
     trainee.company = traineeArray[2];
     trainee.eliminated = traineeArray[3] === 'e'; // sets trainee to be eliminated if 'e' appears in 3rd col
-    trainee.top7 = traineeArray[3] === 't'; // sets trainee to top 7 if 't' appears in 3rd column
+    trainee.top9 = traineeArray[3] === 't'; // sets trainee to top 9 if 't' appears in 3rd column
     trainee.id = parseInt(traineeArray[4]) - 1; // trainee id is the original ordering of the trainees in the first csv
     trainee.image =
       trainee.name.replace(" ", "").replace("-", "") + ".jpeg";
@@ -90,6 +90,7 @@ function newTrainee() {
     id: -1, // -1 denotes a blank trainee spot
     name: '&#8203;', // this is a blank character
     region: '&#8203;', // this is a blank character
+    company: '&#8203;', // this is a blank character
     image: 'emptyrank.png',
   };
 }
@@ -97,7 +98,7 @@ function newTrainee() {
 // Constructor for a blank ranking list
 function newRanking() {
   // holds the ordered list of rankings that the user selects
-  let ranking = new Array(7);
+  let ranking = new Array(9);
   for (let i = 0; i < ranking.length; i++) {
     ranking[i] = newTrainee();
   }
@@ -163,14 +164,14 @@ function populateTable(trainees) {
 function populateTableEntry(trainee) {
   // eliminated will have value "eliminated" only if trainee is eliminated and showEliminated is true, otherwise this is ""
   let eliminated = (showEliminated && trainee.eliminated) && "eliminated";
-  let top7 = (showTop7 && trainee.top7) && "top7";
+  let top9 = (showTop9 && trainee.top9) && "top9";
   const tableEntry = `
   <div class="table__entry ${eliminated}">
     <div class="table__entry-icon">
       <img class="table__entry-img" src="assets/trainees/${trainee.image}" />
       <div class="table__entry-icon-border ${trainee.region.toLowerCase()}-border"></div>
       ${
-        top7 ? '<div class="table__entry-icon-crown"></div>' : ''
+        top9 ? '<div class="table__entry-icon-crown"></div>' : ''
       }
       ${
         trainee.selected ? '<img class="table__entry-check" src="assets/check.png"/>' : ""
@@ -233,7 +234,7 @@ function populateRankingEntry(trainee, currRank) {
     modifiedRegion = abbreviatedRegions[modifiedRegion];
   }
   let eliminated = (showEliminated && trainee.eliminated) && "eliminated";
-  let top7 = (showTop7 && trainee.top7) && "top7";
+  let top9 = (showTop9 && trainee.top9) && "top9";
   const rankingEntry = `
   <div class="ranking__entry ${eliminated}">
     <div class="ranking__entry-view">
@@ -243,7 +244,7 @@ function populateRankingEntry(trainee, currRank) {
       </div>
       <div class="ranking__entry-icon-badge bg-${trainee.region.toLowerCase()}">${currRank}</div>
       ${
-        top7 ? '<div class="ranking__entry-icon-crown"></div>' : ''
+        top9 ? '<div class="ranking__entry-icon-crown"></div>' : ''
       }
     </div>
     <div class="ranking__row-text">
@@ -333,7 +334,7 @@ function removeRankedTrainee(trainee) {
   return false;
 }
 
-const currentURL = "https://projectidol.github.io/ProjectiDol/";
+const currentURL = "https://projectidol.github.io/StanPlanet/";
 // Serializes the ranking into a string and appends that to the current URL
 function generateShareLink() {
   let shareCode = ranking.map(function (trainee) {
