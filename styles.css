@@ -1,7 +1,7 @@
 /* define constants up here */
 :root {
-  --banner-bg-start: #b7b7b7ff;
-  --banner-bg-end: #d9d9d9ff;
+  --banner-bg-start: #000000;
+  --banner-bg-end: #000000;
   --produce-gray: #e4e4e4;
   --search-text-gray: #949494;
   --search-gray: #f2f2f2;
@@ -14,14 +14,9 @@
   --checked-blue: #052ae2CC;
 
   /* company border colors */
-  --jyp: #4599e1;
-  --fnc: #cd4632;
-  --sm: #f283a6;
-  --starship: #db7044;
-  --yg: #000000;
-  --hybe: #e2ed00;
-  --independent: #808080;
-  --cube: #306199;
+  --ashen: #c35043;
+  --pacifica: #3148ba;
+  --subzero: #b2e7f6;
   --no-rank: #989898;
 }
 
@@ -228,29 +223,14 @@ body {
   background-origin: content-box;
 }
 /* Different entry borders */
-.jyp-border {
-  border: 5px solid var(--jyp);
+.ashen-border {
+  border: 5px solid var(--ashen);
 }
-.fnc-border {
-  border: 5px solid var(--fnc);
+.pacifica-border {
+  border: 5px solid var(--pacifica);
 }
-.sm-border {
-  border: 5px solid var(--sm);
-}
-.starship-border {
-  border: 5px solid var(--starship);
-}
-.yg-border {
-  border: 5px solid var(--yg);
-}
-.hybe-border {
-  border: 5px solid var(--hybe);
-}
-.independent-border {
-  border: 5px solid var(--independent);
-}
-.cube-border {
-  border: 5px solid var(--cube);
+.subzero-border {
+  border: 5px solid var(--subzero);
 }
 .eliminated .table__entry-icon-border {
   border: 5px solid var(--no-rank);
@@ -353,35 +333,20 @@ body {
 }
 
 /* Styles for different badge colors */
-.bg-jyp {
-  background-color: var(--jyp);
+.bg-ashen {
+  background-color: var(--ashen);
 }
-.bg-fnc {
-  background-color: var(--fnc);
+.bg-pacifica {
+  background-color: var(--pacifica);
 }
-.bg-sm {
-  background-color: var(--sm);
-}
-.bg-starship {
-  background-color: var(--starship);
-}
-.bg-yg {
-  background-color: var(--yg);
-}
-.bg-hybe {
-  background-color: var(--hybe);
-}
-.bg-independent {
-  background-color: var(--independent);
-}
-.bg-cube {
-  background-color: var(--cube);
+.bg-subzero {
+  background-color: var(--subzero);
 }
 .eliminated .ranking__entry-icon-badge {
   background-color: var(--no-rank);
 }
 
-.ranking__entry .company {
+.ranking__entry .region {
   color: var(--ranking-affil-gray);
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
